@@ -1,0 +1,33 @@
+# The playbook currently runs an echo command to print a fruit name. Apply a loop directive (with_items) to the task to print all fruits defined in the "fruits" variable.
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#  name: Print list of fruits
+#-
+#  hosts: localhost
+#  fruits:
+#    - Apple
+#    - Banana
+#    - Grapes
+#    - Orange
+#  tasks:
+#    -
+#      command: echo "Apple"#
+# ------------------------------
+#           AFTER
+# ------------------------------
+-
+  name: Print list of fruits
+  hosts: localhost
+  fruits:
+    - Apple
+    - Banana
+    - Grapes
+    - Orange
+  tasks:
+    -
+      command: echo "{{ item }}"
+      with_items: '{{ fruits }}'
+
+

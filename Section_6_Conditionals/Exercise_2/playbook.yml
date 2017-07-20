@@ -1,0 +1,35 @@
+# The playbook has a variable defined - age. The two tasks attempt to print if I am a child or an Adult.
+# Use the when conditional to Print if I am a child or an Adult based on weather my age is < 18 (child) or >= 18 (Adult).
+# Refer to the inventory file to identify the name of the database server.
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#-
+#  name: Am in an Adult or a Child
+#  hosts: localhost
+#  vars:
+#    age: 25
+#  tasks:
+#    -
+#      command: echo "I am a Child"
+#
+#    -
+#      command: echo "I am an Adult"
+#
+# ------------------------------
+#           AFTER
+# ------------------------------
+-
+  name: Am in an Adult or a Child
+  hosts: localhost
+  vars:
+    age: 25
+  tasks:
+    -
+      command: echo "I am a Child"
+      when: age < 18
+
+    -
+      command: echo "I am an Adult"
+      when: age >= 18

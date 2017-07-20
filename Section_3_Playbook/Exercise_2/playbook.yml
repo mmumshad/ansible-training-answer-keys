@@ -1,0 +1,20 @@
+# Update the task to execute the command "cat /etc/hosts" and change task name to "Execute a command to display hosts file"
+
+# BEFORE
+# ---------------
+-
+  name: Execute a command to display hosts file on localhost
+  hosts: localhost
+  tasks:
+    -
+      name: Execute a date command
+      command: date
+#
+
+-
+  name: Execute a command to display hosts file on localhost
+  hosts: localhost
+  tasks:
+    -
+      name: Execute a command to display hosts file
+      command: cat /etc/hosts

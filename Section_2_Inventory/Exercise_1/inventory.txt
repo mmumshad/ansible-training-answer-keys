@@ -1,0 +1,8 @@
+# We have a sample inventory file with 3 servers listed. Add a fourth server by the name server4.company.com
+# --------------------------------
+# Sample Inventory File
+
+server1.company.com
+server2.company.com
+server3.company.com
+server4.company.com

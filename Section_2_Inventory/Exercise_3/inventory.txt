@@ -1,0 +1,13 @@
+# The web servers are linux, but the db server is windows. Add additional parameters in each line to add ansible_connection, ansible_user and password.
+# Use the below table for information about credentials.
+# Note: For linux use ansible_ss_pass and for windows use ansible_password. Connector for windows is winrm
+# --------------------------------
+# Sample Inventory File
+
+# Web Servers
+web1 ansible_host=server1.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123!
+web2 ansible_host=server2.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123!
+web3 ansible_host=server3.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123!
+
+# Database Servers
+db1 ansible_host=server4.company.com ansible_connection=winrm ansible_user=administrator ansible_password=Password123!

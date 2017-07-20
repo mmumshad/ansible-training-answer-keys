@@ -1,0 +1,31 @@
+# The given playbook attempts to add an entry into the resolv.conf file for nameserver.
+# First, we run a command to get the contents of resolv.conf file and then we add a new line containing the name server data into the file
+# However, when this playbook is run multiple times, it keeps adding new entries of same line into the resolv.conf file.
+# Add a register directive to store the output of the first command and add a conditional to the second command to check if the output contains the name server ("10.0.250.10") already
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#-
+#  name: Add name server entry if not already entered
+#  hosts: localhost
+#  tasks:
+#    - command: cat /etc/resolv.conf
+#
+#    -
+#      command: echo "nameserver 10.0.250.10" >> /etc/resolv.conf
+#
+# ------------------------------
+#           AFTER
+# ------------------------------
+-
+  name: Add name server entry if not already entered
+  hosts: localhost
+  tasks:
+    - command: cat /etc/resolv.conf
+      register: command_output
+
+    - command: echo "nameserver 10.0.250.10" >> /etc/resolv.conf
+      when: command_output.stdout.find('10.0.250.10') == -1
+
+

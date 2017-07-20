@@ -1,0 +1,24 @@
+# The given playbook attempts to start mysql service on all_servers. Use the when condition to run this task if the host (ansible_host) is the database server.
+# Refer to the inventory file to identify the name of the database server.
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#-
+#  name: Execute a script on all web server nodes
+#  hosts: all_servers
+#  tasks:
+#    -
+#      service: name=mysql state=started
+#
+# ------------------------------
+#           AFTER
+# ------------------------------
+-
+  name: Execute a script on all web server nodes
+  hosts: all_servers
+  tasks:
+    -
+      service: name=mysql state=started
+      when: ansible_host=='server4.company.com'
+

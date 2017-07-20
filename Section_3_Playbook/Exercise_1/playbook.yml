@@ -1,0 +1,23 @@
+# Update name of the play to "Execute a date command on localhost"
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#-
+#  name: Play 1
+#  hosts: localhost
+#  tasks:
+#    -
+#      name: Execute a date command
+#      command: date
+
+# ------------------------------
+#           AFTER
+# ------------------------------
+-
+  name: Execute a date command on localhost
+  hosts: localhost
+  tasks:
+    -
+      name: Execute a date command
+      command: date

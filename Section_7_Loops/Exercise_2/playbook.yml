@@ -1,0 +1,55 @@
+# To a more realistic use case. We are attempting to install multiple packages using yum module.
+# The current playbook installs only a single package.
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#-
+#  name: Install required packages
+#  hosts: localhost
+#  packages:
+#      -	httpd
+#      -	binutils
+#      -	glibc
+#      -	ksh
+#      -	libaio
+#      -	libXext
+#      -	gcc
+#      -	make
+#      -	sysstat
+#      -	unixODBC
+#      -	mongodb
+#      -	nodejs
+#      -	grunt
+#
+#  tasks:
+#    -
+#      yum: name=httpd state=present
+# ------------------------------
+#           AFTER
+# ------------------------------
+-
+  name: Install required packages
+  hosts: localhost
+  vars:
+    packages:
+        - httpd
+        - binutils
+        - glibc
+        - ksh
+        - libaio
+        - libXext
+        - gcc
+        - make
+        - sysstat
+        - unixODBC
+        - mongodb
+        - nodejs
+        - grunt
+
+  tasks:
+    -
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"

@@ -1,0 +1,8 @@
+# We have added aliases named web1, web2 and web3 for the first three servers. Update server4 to have an alias db1
+# --------------------------------
+# Sample Inventory File
+
+web1 ansible_host=server1.company.com
+web2 ansible_host=server2.company.com
+web3 ansible_host=server3.company.com
+db1 ansible_host=server4.company.com

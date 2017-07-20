@@ -1,0 +1,43 @@
+# We are printing some personal information to the screen. We would like to move the car_model, country_name and title to a variable defined at the play level.
+# Create three new variables (car_model, country_name and title) under the play and move the values over. Use the variables in the task.
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#-
+#  name: Update nameserver entry into resolv.conf file on localhost
+#  hosts: localhost
+#  tasks:
+#    -
+#      name: Print my car model
+#      command: echo "My car's model is BMW M3"
+#
+#    -
+#      name: Print my country
+#      command: echo "I live in the USA"
+#
+#    -
+#      name: Print my title
+#      command: echo "I work as a Systems Engineer"
+# ------------------------------
+#           AFTER
+# ------------------------------
+-
+  name: Update nameserver entry into resolv.conf file on localhost
+  hosts: localhost
+  vars:
+    car_model: "BMW M3"
+    country_name: USA
+    title: "Systems Engineer"
+  tasks:
+    -
+      name: Print my car model
+      command: echo "My car's model is {{ car_model }}"
+
+    -
+      name: Print my country
+      command: echo "I live in the {‌{ country_name }}"
+
+    -
+      name: Print my title
+      command: echo "I work as a {‌{ title }}"

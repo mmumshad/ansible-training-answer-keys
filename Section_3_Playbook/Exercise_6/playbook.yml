@@ -1,0 +1,28 @@
+# Create a new play named "Execute a command to display hosts file contents on web_node2" to execute "cat /etc/hosts" command on second node web_node2 and name the task "Execute a command to display hosts file"
+# Refer to the attached inventory.txt file.
+
+# BEFORE
+# ---------------
+#-
+#  name: Execute two commands on boston nodes
+#  hosts: web_node1
+#  tasks:
+#    -
+#      name: Execute a date command
+#      command: date
+
+
+-
+  name: Execute command to display date on web_node1
+  hosts: web_node1
+  tasks:
+    -
+      name: Execute a date command
+      command: date
+-
+  name: Execute a command to display hosts file contents on web_node2
+  hosts: web_node2
+  tasks:
+    -
+      name: Execute a command to display hosts file
+      command: cat /etc/hosts

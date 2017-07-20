@@ -1,0 +1,23 @@
+# Update the playbook to add a second task. The new task must execute the command "cat /etc/hosts" and change new task name to "Execute a command to display hosts file"
+
+# BEFORE
+# ---------------
+#-
+#  name: Execute two commands on localhost
+#  hosts: localhost
+#  tasks:
+#    -
+#      name: Execute a date command
+#      command: date
+#
+
+-
+  name: Execute two commands on localhost
+  hosts: localhost
+  tasks:
+    -
+      name: Execute a date command
+      command: date
+    -
+      name: Execute a command to display hosts file
+      command: cat /etc/hosts

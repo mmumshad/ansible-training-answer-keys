@@ -1,0 +1,26 @@
+# Refer to the attached inventory.txt file. We would like to run the tasks defined in the play on all servers in "boston".
+# Identify the right group to be used and update hosts directive.
+
+# BEFORE
+# ---------------
+#-
+#  name: Execute two commands on boston nodes
+#  hosts: localhost
+#  tasks:
+#    -
+#      name: Execute a date command
+#      command: date
+#    -
+#      name: Execute a command to display hosts file
+#      command: cat /etc/hosts
+
+-
+  name: Execute two commands on boston nodes
+  hosts: boston_nodes
+  tasks:
+    -
+      name: Execute a date command
+      command: date
+    -
+      name: Execute a command to display hosts file
+      command: cat /etc/hosts
