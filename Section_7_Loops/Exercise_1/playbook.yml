@@ -20,11 +20,12 @@
 -
   name: Print list of fruits
   hosts: localhost
-  fruits:
-    - Apple
-    - Banana
-    - Grapes
-    - Orange
+  vars:
+    fruits:
+      - Apple
+      - Banana
+      - Grapes
+      - Orange
   tasks:
     -
       command: echo "{{ item }}"
